@@ -40,11 +40,16 @@ export function TileArt({ suit, rank, variant }: Props) {
         stroke="var(--border)"
         strokeWidth="0.9"
       />
-      <g transform="translate(16.5 5.5) scale(0.38)" style={{ color: "currentColor" }}>
-        <SuitGlyph suit={suit} />
-      </g>
+      {rank !== "ace" && (
+        <g
+          transform="translate(23.5 0.50) scale(0.38) translate(-24 0)"
+          style={{ color: "currentColor" }}
+        >
+          <SuitGlyph suit={suit} />
+        </g>
+      )}
       <g style={{ color: "currentColor" }}>
-        <RankFace suit={suit} rank={rank} size="lg" />
+        <RankFace suit={suit} rank={rank} size="lg" aceGlyphScaleMul={1.00} />
       </g>
     </svg>
   );

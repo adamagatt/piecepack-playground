@@ -33,14 +33,19 @@ export function CoinArt({ suit, rank, face }: Props) {
     );
   }
 
+  // Suit face: scale suit glyph (~24²) around (12,12). Single matrix avoids parse-order quirks with chained translate/scale.
+  const suitScale = 0.8;
+  const gx = 12 * (1 - suitScale);
+
   return (
     <svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden>
       <circle cx="12" cy="12" r="10.2" fill="var(--surface)" stroke={suitColor} strokeWidth="1.2" />
       <g style={{ color: suitColor }}>
         <Tick />
-        <g transform="translate(12 12) scale(1.15) translate(-12 -12)">
-          <SuitGlyph suit={suit} />
-        </g>
+        <SuitGlyph
+          suit={suit}
+          transform={`matrix(${suitScale} 0 0 ${suitScale} ${gx} ${gx})`}
+        />
       </g>
     </svg>
   );

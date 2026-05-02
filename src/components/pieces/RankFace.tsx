@@ -7,9 +7,11 @@ type Props = {
   rank: Rank;
   /** Tile/die/coin sizing inside viewBox units */
   size?: "sm" | "md" | "lg";
+  /** Only applies when rank is ace; multiplies the centered suit glyph scale. */
+  aceGlyphScaleMul?: number;
 };
 
-export function RankFace({ suit, rank, size = "md" }: Props) {
+export function RankFace({ suit, rank, size = "md", aceGlyphScaleMul = 1 }: Props) {
   const fontSize = size === "lg" ? 14 : size === "md" ? 11 : 8;
   if (rank === "null") {
     return (
@@ -27,7 +29,8 @@ export function RankFace({ suit, rank, size = "md" }: Props) {
     );
   }
   if (rank === "ace") {
-    const gScale = size === "lg" ? 1.35 : size === "md" ? 1.05 : 0.75;
+    const base = size === "lg" ? 0.8 : size === "md" ? 0.6 : 0.4;
+    const gScale = base * aceGlyphScaleMul;
     return (
       <g transform={`translate(12 12) scale(${gScale}) translate(-12 -12)`}>
         <SuitGlyph suit={suit} />
@@ -41,7 +44,7 @@ export function RankFace({ suit, rank, size = "md" }: Props) {
       textAnchor="middle"
       dominantBaseline="middle"
       fill="currentColor"
-      fontSize={fontSize + 2}
+      fontSize={fontSize - 1}
       fontWeight="600"
       fontFamily="system-ui, sans-serif"
     >
