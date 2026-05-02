@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <!-- One closed path: outer rim then inner bite (relative arcs)—true crescent, not circle XOR -->
+  <!-- Outer disk minus inner disk; inner stays inside outer so evenodd never paints outside the moon -->
   <path
     fill="currentColor"
-    d="M21 12a9 9 0 1 1-18 0a7.25 7.25 0 1 0 18 0"
+    fill-rule="evenodd"
+    d="M20 12A9 9 0 1 0 2 12A9 9 0 1 0 20 12M20 12A5.45 5.45 0 1 1 9.1 12A5.45 5.45 0 1 1 20 12"
   />
 </svg>
