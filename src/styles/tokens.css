@@ -1,0 +1,37 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f4f1ea;
+  --surface: #ffffff;
+  --surface-elevated: #faf8f3;
+  --border: #d4cfc3;
+  --text: #1c1917;
+  --muted: #57534e;
+  --accent: #b45309;
+  --focus: #2563eb;
+
+  --suit-suns: #ca8a04;
+  --suit-moons: #2563eb;
+  --suit-crowns: #7c3aed;
+  --suit-arms: #059669;
+
+  --tile-face: #fffef8;
+  --tile-grid: #e7e2d6;
+  --coin-value-ink: #0f172a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0a09;
+    --surface: #1c1917;
+    --surface-elevated: #292524;
+    --border: #44403c;
+    --text: #fafaf9;
+    --muted: #a8a29e;
+    --accent: #fbbf24;
+    --focus: #60a5fa;
+
+    --tile-face: #292524;
+    --tile-grid: #44403c;
+    --coin-value-ink: #e7e5e4;
+  }
+}

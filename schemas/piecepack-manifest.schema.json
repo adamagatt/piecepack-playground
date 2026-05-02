@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://piecepack.example/schemas/piecepack-manifest.schema.json",
+  "title": "PiecePackManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifestVersion", "spec", "generatedAt", "tiles", "coins", "dice", "pawns"],
+  "properties": {
+    "manifestVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "spec": {
+      "type": "string",
+      "const": "https://piecepack.org/piecepack_article.html"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tiles": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/tile" }
+    },
+    "coins": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/coin" }
+    },
+    "dice": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/die" }
+    },
+    "pawns": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/pawn" }
+    }
+  },
+  "$defs": {
+    "suit": {
+      "type": "string",
+      "enum": ["suns", "moons", "crowns", "arms"]
+    },
+    "rank": {
+      "type": "string",
+      "enum": ["null", "ace", "2", "3", "4", "5"]
+    },
+    "tile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "suit", "rank"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^tile:[a-z]+:(null|ace|[2-5])$" },
+        "suit": { "$ref": "#/$defs/suit" },
+        "rank": { "$ref": "#/$defs/rank" }
+      }
+    },
+    "coin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "suit", "rank"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^coin:[a-z]+:(null|ace|[2-5])$" },
+        "suit": { "$ref": "#/$defs/suit" },
+        "rank": { "$ref": "#/$defs/rank" }
+      }
+    },
+    "die": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "suit", "faces"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^die:[a-z]+$" },
+        "suit": { "$ref": "#/$defs/suit" },
+        "faces": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": { "$ref": "#/$defs/rank" }
+        }
+      }
+    },
+    "pawn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "suit"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^pawn:[a-z]+$" },
+        "suit": { "$ref": "#/$defs/suit" }
+      }
+    }
+  }
+}
