@@ -9,10 +9,10 @@
   --accent: #b45309;
   --focus: #2563eb;
 
-  --suit-suns: #ca8a04;
-  --suit-moons: #2563eb;
-  --suit-crowns: #7c3aed;
-  --suit-arms: #059669;
+  --suit-suns: #dc2626;
+  --suit-moons: #000000;
+  --suit-crowns: #059669;
+  --suit-arms: #2563eb;
 
   --tile-face: #fffef8;
   --tile-grid: #e7e2d6;
@@ -29,6 +29,11 @@
     --muted: #a8a29e;
     --accent: #fbbf24;
     --focus: #60a5fa;
+
+    --suit-suns: #ef4444;
+    --suit-moons: #000000;
+    --suit-crowns: #34d399;
+    --suit-arms: #60a5fa;
 
     --tile-face: #292524;
     --tile-grid: #44403c;
