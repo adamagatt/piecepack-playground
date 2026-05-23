@@ -9,6 +9,7 @@ type Props = {
   face: "value" | "suit";
 };
 
+/** Orientation tick mark at the top of a coin face. */
 function Tick({ rotation = 0 }: { rotation?: number }) {
   return (
     <polygon
@@ -19,6 +20,10 @@ function Tick({ rotation = 0 }: { rotation?: number }) {
   );
 }
 
+/**
+ * SVG coin face: value (black rank) or suit (colored glyph).
+ * @param face - `"value"` shows rank ink; `"suit"` shows the scaled suit glyph.
+ */
 export function CoinArt({ suit, rank, face }: Props) {
   const suitColor = suitCssVar(suit);
   if (face === "value") {

@@ -20,7 +20,10 @@ const GLYPHS: Record<Suit, GlyphComponent> = {
   arms: ArmsGlyph,
 };
 
-/** Minimal suit icons inspired by the public-domain Piece Pack semantics (not traced from vendor art). */
+/**
+ * Suit icon component for the given suit (minimal originals; not traced from vendor sets).
+ * Forwards SVG props to the underlying glyph.
+ */
 export function SuitGlyph({ suit, ...rest }: Props) {
   const Cmp = GLYPHS[suit];
   return <Cmp {...rest} aria-hidden />;

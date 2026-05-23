@@ -9,6 +9,7 @@ type Props = {
   entry: CatalogEntry;
 };
 
+/** Compact SVG preview used on catalog grid cards. */
 export function PieceThumbnail({ entry }: Props) {
   const color = suitCssVar(entry.suit);
 

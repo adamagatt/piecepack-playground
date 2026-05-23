@@ -8,11 +8,15 @@ type Props = {
   layout?: "strip" | "grid";
 };
 
-/** Six faces in canonical manifest order (null through 5). */
+/**
+ * SVG die showing all six faces in canonical manifest order (null through 5).
+ * @param layout - `"strip"` (horizontal) or `"grid"` (2×3).
+ */
 export function DieArt({ suit, layout = "strip" }: Props) {
   const color = suitCssVar(suit);
   const faces = DIE_FACES;
 
+  /** Single die face cell positioned in strip or grid layout. */
   const cell = (rank: Rank, index: number, row: number, col: number) => (
     <svg
       key={`${rank}-${index}`}

@@ -11,6 +11,11 @@ type Props = {
   onClose: () => void;
 };
 
+/**
+ * Side panel showing enlarged artwork and face notes for the selected catalog entry.
+ * @param entry - Selected piece, or `null` for the empty placeholder state.
+ * @param onClose - Clears the current selection.
+ */
 export function DetailPanel({ entry, onClose }: Props) {
   if (!entry) {
     return (

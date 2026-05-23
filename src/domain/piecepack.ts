@@ -15,6 +15,7 @@ export type PieceKind = "tile" | "coin" | "die" | "pawn";
 /** Canonical die face order used in manifests and the Anatomy diagram set (null–5). */
 export const DIE_FACES: readonly Rank[] = ["null", "ace", "2", "3", "4", "5"];
 
+/** Human-readable suit name (e.g. `"Suns"`). */
 export function suitLabel(suit: Suit): string {
   switch (suit) {
     case "suns":
@@ -28,6 +29,7 @@ export function suitLabel(suit: Suit): string {
   }
 }
 
+/** Human-readable rank name (e.g. `"Null"`, `"Ace"`, `"3"`). */
 export function rankLabel(rank: Rank): string {
   switch (rank) {
     case "null":
@@ -39,6 +41,7 @@ export function rankLabel(rank: Rank): string {
   }
 }
 
+/** Compact rank glyph for SVG faces (e.g. `"∅"`, `"A"`, `"3"`). */
 export function rankShort(rank: Rank): string {
   switch (rank) {
     case "null":
@@ -50,18 +53,22 @@ export function rankShort(rank: Rank): string {
   }
 }
 
+/** Stable catalog id for a tile (`tile:{suit}:{rank}`). */
 export function tileId(suit: Suit, rank: Rank): string {
   return `tile:${suit}:${rank}`;
 }
 
+/** Stable catalog id for a coin (`coin:{suit}:{rank}`). */
 export function coinId(suit: Suit, rank: Rank): string {
   return `coin:${suit}:${rank}`;
 }
 
+/** Stable catalog id for a die (`die:{suit}`). */
 export function dieId(suit: Suit): string {
   return `die:${suit}`;
 }
 
+/** Stable catalog id for a pawn (`pawn:{suit}`). */
 export function pawnId(suit: Suit): string {
   return `pawn:${suit}`;
 }
@@ -132,6 +139,7 @@ export type PawnEntry = {
 
 export type CatalogEntry = TileEntry | CoinEntry | DieEntry | PawnEntry;
 
+/** Full standard-set catalog entries for UI browse/filter (labels included). */
 export function buildCatalog(): CatalogEntry[] {
   const tiles: TileEntry[] = SUITS.flatMap((suit) =>
     RANKS.map((rank) => ({
@@ -171,6 +179,10 @@ export function buildCatalog(): CatalogEntry[] {
   return [...tiles, ...coins, ...dice, ...pawns];
 }
 
+/**
+ * JSON manifest for the complete standard set, conforming to `schemas/piecepack-manifest.schema.json`.
+ * @param now - Timestamp used for `generatedAt` (defaults to current time).
+ */
 export function buildFullManifest(now = new Date()): PiecePackManifest {
   const tiles: TileRecord[] = SUITS.flatMap((suit) =>
     RANKS.map((rank) => ({ id: tileId(suit, rank), suit, rank })),
@@ -199,6 +211,11 @@ export function buildFullManifest(now = new Date()): PiecePackManifest {
   };
 }
 
+/**
+ * Trigger a browser download of a manifest as formatted JSON.
+ * @param manifest - Manifest payload to serialize.
+ * @param filename - Suggested download filename.
+ */
 export function downloadManifestJson(manifest: PiecePackManifest, filename = "piecepack-manifest.json"): void {
   const blob = new Blob([JSON.stringify(manifest, null, 2)], {
     type: "application/json",

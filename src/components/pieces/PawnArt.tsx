@@ -4,6 +4,7 @@ type Props = {
   suit: Suit;
 };
 
+/** SVG pawn silhouette; tinted via `currentColor` from the parent. */
 export function PawnArt({ suit }: Props) {
   void suit;
   return (

@@ -17,6 +17,7 @@ import { PieceThumbnail } from "./PieceThumbnail";
 
 const KINDS: PieceKind[] = ["tile", "coin", "die", "pawn"];
 
+/** Plural UI label for a piece kind filter chip (e.g. `"Tiles"`). */
 function kindLabel(k: PieceKind): string {
   switch (k) {
     case "tile":
@@ -30,6 +31,7 @@ function kindLabel(k: PieceKind): string {
   }
 }
 
+/** Main catalog view: filters, grid, detail panel, and manifest export. */
 export function CatalogScreen() {
   const catalog = useMemo(() => buildCatalog(), []);
 
@@ -57,6 +59,7 @@ export function CatalogScreen() {
     });
   }, [catalog, query, kindFilter, suitFilter, rankFilter]);
 
+  /** Build the full standard-set manifest and download it as JSON. */
   function exportManifest() {
     downloadManifestJson(buildFullManifest());
   }

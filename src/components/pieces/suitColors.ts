@@ -1,5 +1,6 @@
 import type { Suit } from "../../domain/piecepack";
 
+/** CSS `var(...)` token for a suit's theme color. */
 export function suitCssVar(suit: Suit): string {
   switch (suit) {
     case "suns":

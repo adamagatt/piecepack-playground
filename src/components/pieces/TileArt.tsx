@@ -8,6 +8,10 @@ type Props = {
   variant: "obverse" | "reverse";
 };
 
+/**
+ * SVG tile: obverse (suit corner + rank) or reverse (2×2 grid).
+ * @param variant - `"obverse"` or `"reverse"`.
+ */
 export function TileArt({ suit, rank, variant }: Props) {
   if (variant === "reverse") {
     return (

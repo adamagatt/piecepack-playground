@@ -11,6 +11,11 @@ type Props = {
   aceGlyphScaleMul?: number;
 };
 
+/**
+ * Centered rank rendering inside a 24×24 viewBox (null text, ace suit glyph, or numeric label).
+ * @param size - Font/glyph scale preset.
+ * @param aceGlyphScaleMul - Extra scale for ace suit glyphs only.
+ */
 export function RankFace({ suit, rank, size = "md", aceGlyphScaleMul = 1 }: Props) {
   const fontSize = size === "lg" ? 14 : size === "md" ? 11 : 8;
   if (rank === "null") {
