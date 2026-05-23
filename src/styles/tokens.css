@@ -17,6 +17,18 @@
   --tile-face: #fffef8;
   --tile-grid: #e7e2d6;
   --coin-value-ink: #0f172a;
+
+  --play-table-well: #2a241c;
+  --play-surface-bg: #354030;
+  --play-surface-border: #465242;
+  --play-surface-muted: #b5aa9c;
+  --play-piece-face: #f8f0e3;
+  --play-piece-grid: #ddd0b8;
+  --play-piece-border: #c4b39a;
+  --play-coin-ink: #1c1917;
+  --play-tile-size: 68px;
+  --play-coin-size: 58px;
+  --play-die-size: 58px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,5 +50,16 @@
     --tile-face: #292524;
     --tile-grid: #44403c;
     --coin-value-ink: #e7e5e4;
+
+    --play-table-well: #141210;
+    --play-surface-bg: #2a3228;
+    --play-surface-border: #3d4840;
+    --play-surface-muted: #9c9288;
+    --play-piece-face: #f0e6d4;
+    --play-piece-grid: #c9baa4;
+    --play-piece-border: #a89882;
+    --play-tile-size: 68px;
+    --play-coin-size: 58px;
+    --play-die-size: 58px;
   }
 }

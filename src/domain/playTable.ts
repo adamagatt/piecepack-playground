@@ -1,12 +1,12 @@
 import { DIE_FACES, RANKS, SUITS, type Rank, type Suit } from "./piecepack";
 
-export const TILE_W = 52;
-export const TILE_H = 52;
-export const COIN_D = 44;
-export const DIE_SZ = 44;
-export const MERGE_DIST = 38;
-export const PLAY_W = 920;
-export const PLAY_H = 520;
+export const TILE_W = 68;
+export const TILE_H = 68;
+export const COIN_D = 58;
+export const DIE_SZ = 58;
+export const MERGE_DIST = 50;
+export const PLAY_W = 1000;
+export const PLAY_H = 560;
 
 export type FaceCard = { suit: Suit; rank: Rank; faceUp: boolean };
 

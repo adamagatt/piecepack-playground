@@ -30,7 +30,7 @@ export function CoinArt({ suit, rank, face }: Props) {
     return (
       <svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden>
         <circle cx="12" cy="12" r="10.2" fill="var(--surface)" stroke="var(--border)" strokeWidth="0.9" />
-        <g style={{ color: "var(--coin-value-ink)" }}>
+        <g className="coin-value-ink">
           <Tick />
           <RankFace suit={suit} rank={rank} size="lg" />
         </g>
