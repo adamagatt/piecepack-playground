@@ -19,9 +19,13 @@ npm run build        # production frontend bundle
 npm run tauri build  # desktop installers (requires system deps)
 ```
 
+Open the app and use **Play table** in the header for the interactive table (drag, flip, stack, shuffle, roll dice). **Catalog** returns to the reference grid.
+
 ## Project layout
 
 - `src/domain/piecepack.ts` — suits, ranks, catalog entries, manifest builder
+- `src/domain/playTable.ts` — play table state, drag/merge helpers
+- `src/components/PlayTableScreen.tsx` — interactive table UI
 - `src/components/pieces/` — SVG artwork (minimal originals; not traced from vendor sets)
 - `schemas/` — JSON Schema for exported manifests
 

@@ -31,8 +31,12 @@ function kindLabel(k: PieceKind): string {
   }
 }
 
+type Props = {
+  onOpenPlay: () => void;
+};
+
 /** Main catalog view: filters, grid, detail panel, and manifest export. */
-export function CatalogScreen() {
+export function CatalogScreen({ onOpenPlay }: Props) {
   const catalog = useMemo(() => buildCatalog(), []);
 
   const [query, setQuery] = useState("");
@@ -75,9 +79,14 @@ export function CatalogScreen() {
             Standard set reference — browse components and export a JSON manifest for tooling.
           </p>
         </div>
-        <button type="button" className="btn primary" onClick={exportManifest}>
-          Export manifest JSON
-        </button>
+        <div className="catalog-header-actions">
+          <button type="button" className="btn" onClick={onOpenPlay}>
+            Play table
+          </button>
+          <button type="button" className="btn primary" onClick={exportManifest}>
+            Export manifest JSON
+          </button>
+        </div>
       </header>
 
       <div className="catalog-body">

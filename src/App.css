@@ -356,6 +356,127 @@ body {
   color: var(--accent);
 }
 
+.catalog-header-actions,
+.play-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.play-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.play-main {
+  flex: 1;
+  padding: 1rem 1.5rem 2rem;
+  overflow: auto;
+}
+
+.play-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.play-hint {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  max-width: 72ch;
+}
+
+.play-surface-wrap {
+  overflow: auto;
+  max-width: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.play-surface {
+  position: relative;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.play-locator {
+  position: absolute;
+  touch-action: none;
+}
+
+.play-stack {
+  min-width: 0;
+}
+
+.play-stack .play-piece {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.play-piece-inner {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  border-radius: 4px;
+}
+
+.play-piece-inner.dragging {
+  cursor: grabbing;
+}
+
+.play-piece-inner.selected {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.play-piece--tile {
+  width: 52px;
+  height: 52px;
+}
+
+.play-piece--coin {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.play-piece--die {
+  width: 44px;
+  height: 44px;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.play-tile-face,
+.play-coin-face {
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.play-stack-count {
+  position: absolute;
+  left: 2px;
+  top: 56px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.play-stack.play-locator:has(.play-piece--coin) .play-stack-count {
+  top: 48px;
+}
+
 @media (max-width: 1100px) {
   .catalog-body {
     grid-template-columns: minmax(0, 1fr);
