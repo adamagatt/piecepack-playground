@@ -21,6 +21,10 @@ npm run tauri build  # desktop installers (requires system deps)
 
 Open the app and use **Play table** in the header for the interactive table (drag, flip, stack, shuffle, roll dice). **Catalog** returns to the reference grid.
 
+## Documentation
+
+Design docs for new contributors: **[docs/README.md](docs/README.md)** (overview, architecture, domain model, UI, assets, manifest contract, contributing).
+
 ## Project layout
 
 - `src/domain/piecepack.ts` — suits, ranks, catalog entries, manifest builder
